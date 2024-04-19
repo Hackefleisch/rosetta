@@ -395,6 +395,7 @@ sources = {
         	"ResidueCouplingConstraint",
 		"ResidueTypeConstraint",
 		"ResidueTypeLinkingConstraint",
+		"RMSDConstraint",
 		"RTConstraint",
 		"SequenceProfileConstraint",
 		"SiteConstraint",
