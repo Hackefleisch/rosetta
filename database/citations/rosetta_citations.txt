@@ -1448,3 +1448,30 @@
     [END_DOI]
 [END_CITATION]
 
+[BEGIN_CITATION]
+    [BEGIN_PRIMARY_AUTHORS]
+        "Paul" "Eisenhuth" "P"
+    [END_PRIMARY_AUTHORS]
+    [BEGIN_COAUTHORS]
+        "Fabian" "Liessmann" "F"
+        "Rocco" "Moretti" "R"
+    [END_COAUTHORS]
+    [BEGIN_SENIOR_AUTHORS]
+        "Jens" "Meiler" "J"
+    [END_SENIOR_AUTHORS]
+    [BEGIN_YEAR]
+        2025
+    [END_YEAR]
+    [BEGIN_TITLE]
+        REvoLd: Ultra-Large Library Screening with an Evolutionary Algorithm in Rosetta
+    [END_TITLE]
+    [BEGIN_JOURNAL]
+        XXX
+    [END_JOURNAL]
+    [BEGIN_VOLUME_ISSUE_PAGES]
+        XXX
+    [END_VOLUME_ISSUE_PAGES]
+    [BEGIN_DOI]
+        revold/under_review
+    [END_DOI]
+[END_CITATION]

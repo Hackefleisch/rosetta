@@ -15,6 +15,8 @@
 #include <protocols/ligand_evolution/EvolutionManager.hh>
 
 // utility headers
+#include <basic/citation_manager/CitationCollection.hh>
+#include <basic/citation_manager/CitationManager.hh>
 #include <basic/Tracer.hh>
 #include <devel/init.hh>
 #include <utility/excn/Exceptions.hh>
@@ -28,6 +30,17 @@ static basic::Tracer TR( "apps.ligand_design.revold" ); // NOLINT(cert-err58-cpp
 
 using namespace protocols::ligand_evolution;
 
+void provide_citation_info( basic::citation_manager::CitationCollectionList & citation_list ) {
+	basic::citation_manager::CitationCollectionOP citationcollection(
+			utility::pointer::make_shared< basic::citation_manager::CitationCollection >(
+					"REvoLd", basic::citation_manager::CitedModuleType::Application
+			)
+	);
+	basic::citation_manager::CitationManager * cm( basic::citation_manager::CitationManager::get_instance() );
+	citationcollection->add_citation( cm->get_citation_by_doi( "revold/under_review" ) );
+
+	citation_list.add(citationcollection);
+}
 
 int main( int argc, char* argv[] ) {
 
@@ -62,10 +75,18 @@ int main( int argc, char* argv[] ) {
 		MPI_Finalize();
 #endif
 
+		{
+			//Citation manager registration:
+			basic::citation_manager::CitationCollectionList citations;
+			provide_citation_info( citations );
+			basic::citation_manager::CitationManager::get_instance()->add_citations( citations );
+		}
+
+		basic::citation_manager::CitationManager::get_instance()->write_all_citations_and_unpublished_author_info();
+
 		return 0;
 	} catch ( utility::excn::Exception const & e ) {
 		e.display();
 		return -1;
 	}
 }
-
